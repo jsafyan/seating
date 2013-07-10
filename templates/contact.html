@@ -1,0 +1,104 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+	{% if success %}
+	<h1 style="color: green">Thank You!</h1>
+		<p style="text-align: center">We've received your seating preferences.</p>
+	{% else %}
+	<h1>Seating Preferences</h1>
+
+		{% for message in form.name.errors %}
+			<div class="flash">{{ message }}</div>
+		{% endfor %}
+
+		{% for message in form.email.errors %}
+			<div class="flash">{{ message }}</div>
+		{% endfor %}
+
+		{% for message in form.guest_number.errors %}
+			<div class="flash">{{ message }}</div>
+		{% endfor %}
+
+
+		<form action="{{ url_for('contact') }}" method=post>
+			{{ form.hidden_tag() }}
+
+			{{ form.name.label }}
+			{{ form.name }}
+
+			{{ form.email.label }}
+			{{ form.email }}
+
+			{{ form.phone.label }}
+			{{ form.phone }}
+
+
+			<p>Please indicate the name of each person who needs a seat in either the
+				men's or the women's section (including yourself and guests), and check the box next to each guest's name.</p>
+
+			<h3>Men's Section</h3>
+			<hr class="fancy-line"></hr>
+
+			{{ form.mname1.label }}
+			{{ form.mname1 }}
+			{{ form.mg1 }}
+
+			{{ form.mname2.label }}
+			{{ form.mname2 }}
+			{{ form.mg2 }}
+
+			{{ form.mname3.label }}
+			{{ form.mname3 }}
+			{{ form.mg3 }}
+
+			{{ form.mname4.label }}
+			{{ form.mname4 }}
+			{{ form.mg4 }}
+
+			{{ form.mname5.label }}
+			{{ form.mname5 }}
+			{{ form.mg5 }}
+
+
+			<h3>Women's Section</h3>
+			<hr class="fancy-line"></hr>
+
+			{{ form.wname1.label }}
+			{{ form.wname1 }}
+			{{ form.wg1 }}
+
+			{{ form.wname2.label }}
+			{{ form.wname2 }}
+			{{ form.wg2 }}
+
+			{{ form.wname3.label }}
+			{{ form.wname3 }}
+			{{ form.wg3 }}
+
+			{{ form.wname4.label }}
+			{{ form.wname4 }}
+			{{ form.wg4 }}
+
+			{{ form.wname5.label }}
+			{{ form.wname5 }}
+			{{ form.wg5 }}
+
+			<p>Please indicate the number of guests for whom you need to purchase seats. Also, if you are requesting seats for the first time or if would like different seats, please make a note of your preferences in the comments section.</p>
+			<hr class="fancy-line"></hr>
+
+			{{ form.same_seats.label }}
+			{{ form.same_seats }}
+
+			{{ form.guest_number.label }}
+			{{ form.guest_number }}
+
+			{{ form.comments.label }}
+			{{ form.comments }}
+
+			{{ form.submit }}
+
+		</form>
+		
+	{% endif %}
+{% endblock %}

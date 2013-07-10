@@ -1,0 +1,10 @@
+Flask==0.9
+Flask-Mail==0.8.2
+Flask-WTF==0.8.3
+Jinja2==2.6
+WTForms==1.0.4
+Werkzeug==0.8.3
+blinker==1.2
+gunicorn==17.5
+newrelic==1.13.1.31
+wsgiref==0.1.2
