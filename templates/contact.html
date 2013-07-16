@@ -6,7 +6,8 @@
 	<h1 style="color: green">Thank You!</h1>
 		<p style="text-align: center">We've received your seating preferences.</p>
 	{% else %}
-	<h1>Seating Preferences</h1>
+	<h1>High Holiday Seating Preferences</h1>
+	<img style="display: block; margin-left: auto; margin-right: auto"src="/static/img/logo.png">
 
 		{% for message in form.name.errors %}
 			<div class="flash">{{ message }}</div>
@@ -16,7 +17,7 @@
 			<div class="flash">{{ message }}</div>
 		{% endfor %}
 
-		{% for message in form.guest_number.errors %}
+		{% for message in form.membership.errors %}
 			<div class="flash">{{ message }}</div>
 		{% endfor %}
 
@@ -34,31 +35,40 @@
 			{{ form.phone }}
 
 
-			<p>Please indicate the name of each person who needs a seat in either the
-				men's or the women's section (including yourself and guests), and check the box next to each guest's name.</p>
+			<p>Please indicate the name of each person who needs a seat (including yourself and guests), and check the box next to the name of each guest.</p>
 
 			<h3>Men's Section</h3>
 			<hr class="fancy-line"></hr>
 
 			{{ form.mname1.label }}
 			{{ form.mname1 }}
-			{{ form.mg1 }}
+			<div style="display: inline-block; margin-left: 30px">
+				Guest? {{ form.mg1 }}
+			</div>
 
 			{{ form.mname2.label }}
 			{{ form.mname2 }}
-			{{ form.mg2 }}
+			<div style="display: inline-block; margin-left: 30px">
+				Guest? {{ form.mg2 }}
+			</div>
 
 			{{ form.mname3.label }}
 			{{ form.mname3 }}
-			{{ form.mg3 }}
+			<div style="display: inline-block; margin-left: 30px">
+				Guest? {{ form.mg3 }}
+			</div>
 
 			{{ form.mname4.label }}
 			{{ form.mname4 }}
-			{{ form.mg4 }}
+			<div style="display: inline-block; margin-left: 30px">
+				Guest? {{ form.mg4 }}
+			</div>
 
 			{{ form.mname5.label }}
 			{{ form.mname5 }}
-			{{ form.mg5 }}
+			<div style="display: inline-block; margin-left: 30px">
+				Guest? {{ form.mg5 }}
+			</div>
 
 
 			<h3>Women's Section</h3>
@@ -66,32 +76,60 @@
 
 			{{ form.wname1.label }}
 			{{ form.wname1 }}
-			{{ form.wg1 }}
+			<div style="display: inline-block; margin-left: 30px">
+				Guest? {{ form.wg1 }}
+			</div>
 
 			{{ form.wname2.label }}
 			{{ form.wname2 }}
-			{{ form.wg2 }}
+			<div style="display: inline-block; margin-left: 30px">
+				Guest? {{ form.wg2 }}
+			</div>
 
 			{{ form.wname3.label }}
 			{{ form.wname3 }}
-			{{ form.wg3 }}
+			<div style="display: inline-block; margin-left: 30px">
+				Guest? {{ form.wg3 }}
+			</div>
 
 			{{ form.wname4.label }}
 			{{ form.wname4 }}
-			{{ form.wg4 }}
+			<div style="display: inline-block; margin-left: 30px">
+				Guest? {{ form.wg4 }}
+			</div>
 
 			{{ form.wname5.label }}
 			{{ form.wname5 }}
-			{{ form.wg5 }}
+			<div style="display: inline-block; margin-left: 30px">
+				Guest? {{ form.wg5 }}
+			</div>
 
-			<p>Please indicate the number of guests for whom you need to purchase seats. Also, if you are requesting seats for the first time or if would like different seats, please make a note of your preferences in the comments section.</p>
+			<h3>Membership Category</h3>
+			<hr class="fancy-line"></hr>
+
+
+			<p>Please indicate your membership category (required):</p>
+			<table>
+			{% for subfield in form.membership %}
+				<tr>
+					<td>
+						<tr>
+							<td>{{ subfield.label }}</td>
+							<td>{{ subfield }}</td>
+						</tr>
+					</td>
+				</tr>
+			{% endfor %}
+			</table>
+
+			<h3>Seats</h3>
 			<hr class="fancy-line"></hr>
 
 			{{ form.same_seats.label }}
 			{{ form.same_seats }}
 
-			{{ form.guest_number.label }}
-			{{ form.guest_number }}
+			<p>If you are requesting seats for the first time or if you would like different seats than last year, please make a note of your preferences in the comments section.</p>
+
 
 			{{ form.comments.label }}
 			{{ form.comments }}

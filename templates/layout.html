@@ -7,31 +7,30 @@
 	<body>
 	<div class="ribbon-wrapper-green"><div class="ribbon-green">BETA</div></div>
 
-<input type="checkbox" class="main-nav-check" id="main-nav-check" />
-<nav class="main-nav" id="main-nav">
-  <a href="{{ url_for('home') }}">Home <img style="float: right" height="25px" width="25px" src="/static/img/home.png"></a>
-  <a href="{{ url_for('about') }}">About <img style="float: right" height="25px" width="25px" src="/static/img/info.png"></a>
-  <a href="{{ url_for('contact') }}">Form <img style="float: right" height="25px" width="25px" src="/static/img/form.png"></a>
-</nav>
+	<input type="checkbox" class="main-nav-check" id="main-nav-check" />
+		<nav class="main-nav" id="main-nav">
+  			<a href="{{ url_for('home') }}">Home <img style="float: right" height="25px" width="25px" src="/static/img/home.png"></a>
+  			<a href="{{ url_for('about') }}">About <img style="float: right" height="25px" width="25px" src="/static/img/info.png"></a>
+ 			<a href="{{ url_for('contact') }}">Form <img style="float: right" height="25px" width="25px" src="/static/img/form.png"></a>
+		</nav>
 
-<div class="page-wrap">
+	<div class="page-wrap">
 
-  <header class="main-header">
-    <label for="main-nav-check" class="toggle-menu">
-      <img height="45px" width="55px" src="/static/img/menu.png" alt="nav">
-    </label>
+  		<header class="main-header">
+    		<label for="main-nav-check" class="toggle-menu">
+      			<img height="45px" width="55px" src="/static/img/menu.png" alt="nav">
+    		</label>
     
-  </header>
+  		</header>
   
-  <div class="content">
+  		<div class="content">
   
-
-		<div class="container">
-			{% block content %}
-			{% endblock %}
+  			<div class="container">
+				{% block content %}
+				{% endblock %}
+			</div>
 		</div>
 	</div>
-</div>
 
 	</body>
 </html>

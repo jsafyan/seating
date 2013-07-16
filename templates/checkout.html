@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+{% block content %}
+<h3>Payment</h3>
+<img width="140px" height="100px" style="display: block; float: right"src="/static/img/logo.png">
+  <form action="/charge" method="post">
+    <article>
+      <label>
+        <span id="price"></span>
+      </label>
+    </article>
+
+
+    <script src="https://checkout.stripe.com/v2/checkout.js" class="stripe-button"
+            data-key="{{ key }}"
+            data-description="Guest Seats"
+            data-amount="{{ session['bill'] }}">
+    </script>
+
+     <!--<p style="color: black; font-size: 55%">This page is protected end-to-end with SSL encryption, and HTTP Strict Transport Security to our payment provider Stripe, where all card data is secured with financial-grade AES-256 encryption.</p>-->
+
+    <script>
+            //Write price into span
+            var price = {{ session['bill'] }};
+            //Convert from cents to dollars
+            price = price / 100.00;
+            //Round to two decimal places
+            price = parseFloat(Math.round(price * 100) / 100).toFixed(2);
+            window.document.getElementById("price").innerHTML = "Amount due: $" + price;
+    </script>
+  </form>
+{% endblock %}

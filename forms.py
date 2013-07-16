@@ -1,4 +1,4 @@
-from flask.ext.wtf import Form, TextField, IntegerField, BooleanField, TextAreaField, SubmitField, validators, ValidationError
+from flask.ext.wtf import Form, TextField, IntegerField, BooleanField, TextAreaField, SubmitField, RadioField, validators, ValidationError
 
 class ContactForm(Form):
 	#Personal contact info
@@ -30,7 +30,11 @@ class ContactForm(Form):
 	wname5 = TextField("Name 5")
 	wg5 = BooleanField()
 
-	same_seats = BooleanField("Check the box if you would like the same seats as the previous year")
-	guest_number = IntegerField("Number of guest seats to be purchased", [validators.NumberRange(min=0, max=50, message="Please enter the number of guest seats needed (either 0 or more).")])
+	membership = RadioField('membership', choices = [('yesod', 'Yesod'), ('chai', 'Chai'), ('chesed', 'Chesed'), 
+		('member', 'Family/Young Family/Individual/Student'), ('assoc', 'Associate'), ('non-member', 'Non-Member')])
+
+
+	same_seats = BooleanField("Check the box if you would like the same seats as last year")
 	comments = TextAreaField("Comments",)
 	submit = SubmitField("Submit Form")
+

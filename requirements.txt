@@ -7,4 +7,6 @@ Werkzeug==0.8.3
 blinker==1.2
 gunicorn==17.5
 newrelic==1.13.1.31
+requests==1.2.3
+stripe==1.9.1
 wsgiref==0.1.2
