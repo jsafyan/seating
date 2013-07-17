@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, flash, session
 from forms import ContactForm
 from flask.ext.mail import Message, Mail
+from flask_sslify import SSLify
 import stripe
 
 stripe_keys = {
@@ -13,6 +14,7 @@ stripe.api_key = stripe_keys['secret_key']
 mail = Mail()
 
 app = Flask(__name__)
+sslify = SSLify(app)
 
 app.secret_key = ""
 
