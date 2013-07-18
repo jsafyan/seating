@@ -35,7 +35,7 @@
 			{{ form.phone }}
 
 
-			<p>Please indicate the name of each person who needs a seat (including yourself and guests), and check the box next to the name of each guest.</p>
+			<p>Please indicate the name of each person who needs a seat (including yourself), and check the box next to the name of each person who is an Associate member or non-member.</p>
 
 			<h3>Men's Section</h3>
 			<hr class="fancy-line"></hr>
@@ -43,31 +43,31 @@
 			{{ form.mname1.label }}
 			{{ form.mname1 }}
 			<div style="display: inline-block; margin-left: 30px">
-				Guest? {{ form.mg1 }}
+				Associate or Non-Member? {{ form.mg1 }}
 			</div>
 
 			{{ form.mname2.label }}
 			{{ form.mname2 }}
 			<div style="display: inline-block; margin-left: 30px">
-				Guest? {{ form.mg2 }}
+				Associate or Non-Member? {{ form.mg2 }}
 			</div>
 
 			{{ form.mname3.label }}
 			{{ form.mname3 }}
 			<div style="display: inline-block; margin-left: 30px">
-				Guest? {{ form.mg3 }}
+				Associate or Non-Member? {{ form.mg3 }}
 			</div>
 
 			{{ form.mname4.label }}
 			{{ form.mname4 }}
 			<div style="display: inline-block; margin-left: 30px">
-				Guest? {{ form.mg4 }}
+				Associate or Non-Member? {{ form.mg4 }}
 			</div>
 
 			{{ form.mname5.label }}
 			{{ form.mname5 }}
 			<div style="display: inline-block; margin-left: 30px">
-				Guest? {{ form.mg5 }}
+				Associate or Non-Member? {{ form.mg5 }}
 			</div>
 
 
@@ -77,31 +77,31 @@
 			{{ form.wname1.label }}
 			{{ form.wname1 }}
 			<div style="display: inline-block; margin-left: 30px">
-				Guest? {{ form.wg1 }}
+				Associate or Non-Member? {{ form.wg1 }}
 			</div>
 
 			{{ form.wname2.label }}
 			{{ form.wname2 }}
 			<div style="display: inline-block; margin-left: 30px">
-				Guest? {{ form.wg2 }}
+				Associate or Non-Member? {{ form.wg2 }}
 			</div>
 
 			{{ form.wname3.label }}
 			{{ form.wname3 }}
 			<div style="display: inline-block; margin-left: 30px">
-				Guest? {{ form.wg3 }}
+				Associate or Non-Member? {{ form.wg3 }}
 			</div>
 
 			{{ form.wname4.label }}
 			{{ form.wname4 }}
 			<div style="display: inline-block; margin-left: 30px">
-				Guest? {{ form.wg4 }}
+				Associate or Non-Member? {{ form.wg4 }}
 			</div>
 
 			{{ form.wname5.label }}
 			{{ form.wname5 }}
 			<div style="display: inline-block; margin-left: 30px">
-				Guest? {{ form.wg5 }}
+				Associate or Non-Member? {{ form.wg5 }}
 			</div>
 
 			<h3>Membership Category</h3>
@@ -139,4 +139,13 @@
 		</form>
 		
 	{% endif %}
+	<script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-27459828-2', 'herokuapp.com');
+    ga('send', 'pageview');
+    </script>
 {% endblock %}

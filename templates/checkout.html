@@ -1,7 +1,7 @@
 {% extends "layout.html" %}
 {% block content %}
 <h3>Payment</h3>
-<img width="140px" height="100px" style="display: block; float: right"src="/static/img/logo.png">
+<img width="160px" height="80px" style="display: block; float: right"src="/static/img/logo.png">
   <form action="/charge" method="post">
     <article>
       <label>
@@ -26,6 +26,16 @@
             //Round to two decimal places
             price = parseFloat(Math.round(price * 100) / 100).toFixed(2);
             window.document.getElementById("price").innerHTML = "Amount due: $" + price;
+    </script>
+
+    <script>
+    (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+    (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+    m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+    })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+    ga('create', 'UA-27459828-2', 'herokuapp.com');
+    ga('send', 'pageview');
     </script>
   </form>
 {% endblock %}

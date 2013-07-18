@@ -45,19 +45,14 @@ def contact():
 			flash("All fields are required.")
 			return render_template('contact.html', form=form)
 		else:
-			gdict = { True : "(Guest)", False : "" }
+			gdict = { True : "(Associate/non-member)", False : "" }
 			ticket_count = (form.mg1.data + form.mg2.data + form.mg3.data
 			 + form.mg4.data + form.mg5.data + form.wg1.data + form.wg2.data
 			  + form.wg3.data + form.wg4.data + form.wg5.data)
 
-			memdict = {'yesod' : 0, 'chai' : 0, 'chesed' : 5000, 'member' : 10000, 'assoc' : 10000, 'non-member' : 12000}
-			seat_number = 0
-			if form.membership.data == 'assoc':
-				seat_number = ticket_count + 1
-			elif form.membership.data == 'non-member':
-				seat_number = ticket_count + 1
-			else:
-				seat_number = ticket_count
+			memdict = {'yesod' : 0, 'chai' : 0, 'chesed' : 5000, 'member' : 10000, 
+			'assoc' : 10000, 'non-member' : 12000}
+			seat_number = ticket_count
 			bill = memdict[form.membership.data] * seat_number
 
 			#dollar value of bill
@@ -126,7 +121,7 @@ def charge():
 		description='Flask Charge'
 	)
 
-	msg = Message("High Holy Days Seating Preferences", 
+	msg = Message("", 
 					sender='', recipients=[''])
 	msg.body = session['msg']
 	mail.send(msg)
